@@ -55,7 +55,7 @@ if (nombre != "" && apellido != "") {
 } else {
     console.log("nombre o apellido vacios..");
 }
-var culpable = window.prompt("¿eres culpable?"); // si, no
+var culpable = prompt("¿eres culpable? (si/no)"); // si, no
 
 if (culpable == "si") {
     document.write("irás a la cárcel");
