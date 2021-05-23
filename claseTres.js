@@ -28,3 +28,4 @@ for (var mes = 0; mes < mesesYear.length; mes++) { //bucle externo
 }
 document.write("<hr>");
 document.write("<br>");
+
