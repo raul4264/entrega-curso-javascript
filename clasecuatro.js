@@ -41,8 +41,72 @@ window.addEventListener('load', iniciar, false)
 
 /**...........jquery......................... */
 
-
 $(document).ready(function() {
+
+
+
+
+    $("#flip").click(function() {
+        $("#panel").slideDown(5000);
+    });
+    $("#stop").click(function() {
+        $("#panel").stop();
+    });
+
+    $("#dos").click(function() {
+        $("div").animate({ right: '200px' });
+    });
+    // $('#java').slideToggle('slow');
+    $('#java').on('click', function() {
+        $('#java').css('background-color', 'black');
+    })
+    $("#tres").click(function() {
+        // $('#java').slideToggle('slow');
+        $("#rule").delay("slow").slideToggle('slow');
+        $("#java").delay("slow").slideToggle('slow');
+
+    });
+
+
+    /*  $.ajax('social.html', {
+
+         success: function(respuesta) {
+             $('.lateral').append($(respuesta))
+
+         } 
+
+     })*/
+
+    $.get('social.html', function(respuesta) {
+        $('.lateral').append($(respuesta))
+    })
+
+
+
+    $("#usuarios").click(function() {
+        $("main").fadeIn('slow')
+        $.getJSON('https://randomuser.me/api/?results=500')
+            .then(function(respuesta) {
+
+                respuesta.results.forEach(function(persona) {
+                    console.log(persona.picture.thumbnail);
+                    $('<img>')
+                        .attr('src', persona.picture.thumbnail)
+                        .appendTo('.contenido');
+                });
+
+
+
+            });
+    });
+
+
+});
+/**....................................................... */
+
+
+
+/* $(document).ready(function() {
 
 
     var ocultar = $("#ocultar");
@@ -70,4 +134,4 @@ $(document).ready(function() {
         $('#cajaformulario').toggleClass('display-3');
     });
 
-});
+}); */
