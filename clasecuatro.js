@@ -103,35 +103,24 @@ $(document).ready(function() {
 
 });
 /**....................................................... */
+const nombre = document.querySelector('.nombre')
+const numero = document.querySelector('.numero')
+const direccion = document.querySelector('.direccion')
+const btnAgregarTarea = document.querySelector('.btn-agregar-tarea')
 
+const listadoTareas = document.querySelector('.listado-tareas')
 
+const db = window.localStorage
 
-/* $(document).ready(function() {
+btnAgregarTarea.onclick = () => {
+    let contacto = {
+        id: Math.random(1, 1000),
+        nombre: nombre.value,
+        numero: numero.value,
+        direccion: direccion.value,
+    }
 
+    guardarContacto(db, contacto);
 
-    var ocultar = $("#ocultar");
-    var mostrar = $("#mostrar");
-    var toggle = $("#toggle");
-    var elemento = $("#elemento");
-
-    ocultar.click(function() {
-        elemento.hide(1000);
-    });
-
-    mostrar.click(function() {
-        elemento.show(1000);
-    });
-
-    toggle.click(function() {
-        elemento.toggle(1000);
-    });
-
-    $('#boton3').on('click', function() {
-        $('#contenido h6').toggleClass('display-3');
-    });
-
-    $('#boton3').on('click', function() {
-        $('#cajaformulario').toggleClass('display-3');
-    });
-
-}); */
+}
+cargarContactos(db, listadoTareas)
