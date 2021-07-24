@@ -24,14 +24,14 @@ function mostrar() {
 }
 
 function eliminar(clave) {
-    if (confirm('Está Seguro?')) {
+    if (Swal.fire("datos eliminados")) {
         sessionStorage.removeItem(clave);
         mostrar();
     }
 }
 
 function eliminarTodo() {
-    if (confirm('Está Seguro?')) {
+    if (Swal.fire("")) {
         sessionStorage.clear();
         mostrar();
     }
@@ -68,14 +68,7 @@ $(document).ready(function() {
     });
 
 
-    /*  $.ajax('social.html', {
 
-         success: function(respuesta) {
-             $('.lateral').append($(respuesta))
-
-         } 
-
-     })*/
 
     $.get('social.html', function(respuesta) {
         $('.lateral').append($(respuesta))
@@ -112,12 +105,19 @@ const listadoTareas = document.querySelector('.listado-tareas')
 
 const db = window.localStorage
 
-btnAgregarTarea.onclick = () => {
+
+btnAgregarTarea.onclick = (evento) => {
+    evento.preventDefault();
     let contacto = {
+
         id: Math.random(1, 1000),
         nombre: nombre.value,
         numero: numero.value,
         direccion: direccion.value,
+
+
+
+
     }
 
     guardarContacto(db, contacto);
